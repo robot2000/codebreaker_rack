@@ -1,0 +1,81 @@
+<html>
+  
+  <head>
+    <title>WEB page</title>
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css">
+  </head>
+  
+  <body>
+    <div id="container">
+      
+      <div id="header">
+        <h1>Codebreaker</h1>
+      </div>
+      
+      <div id="body">
+        <div id="content">
+          <div>
+            <div id="hist">
+              <% @application.prev_results.each do |val| %>
+                <%= val[0] %> : <%= val[1] %>
+                <br/>
+              <% end %>
+            </div>
+
+            <% if @application.game_status == 'play' %>
+              <form method="post" action="/check">
+                <input name="suspect" type="text" placeholder="enter code here (1..4)" pattern="[1-6]{4}"/>
+                <input type="submit" value="Check"/>
+              </form>
+            <% elsif @application.game_status == 'win'%>
+              <h1>You WIN</h1>
+              <h2>you score: <%= @application.score %> points</h2>
+              <form method="post" action="/save">
+                <input name="name" type="text" placeholder="enter your name"/>
+                <input type="submit" value="Save"/>
+              </form>
+            <% else %>
+              <h1>You LOSE</h1>
+            <% end %>
+            
+            <%if @application.hint_value.empty?%>
+              <form method="post" action="/hint">
+                <input type="submit" value="Get hint"/>
+              </form>
+            <% else %>
+              hint: <%= @application.hint_value %>
+            <%end%>
+            <form method="post" action="/start_new">
+              <input type="submit" value="start_new_game!"/>
+            </form>
+          </div>
+
+          <div id="rules">
+            <h3>Introducing Codebreaker</h3>
+
+            <p>Codebreaker is a logic game in which a code-breaker tries to break a secret code created by a code-maker.
+              The code-maker, which will be played by the application we're going to write,
+              creates a secret code of four numbers between 1 and 6. Code contains only 4 digits</p>
+            <p>The code-breaker then gets some number of chances to break the code. In each turn, the code-breaker
+              makes a guess of four numbers. The code-maker then marks the guess with up to four + and - signs.</p>
+            <p>A + indicates an exact match: one of the numbers in the guess is the same as one of the numbers in the
+              secret code and in the same position.</p>
+            <p>A - indicates a number match: one of the numbers in the guess is the same as one of the numbers in the
+              secret code but in a different position.</p>
+          </div>
+        </div>
+        
+        <div id="winners">
+          <h2>SCORE BOARD:</h2>
+          <ul>
+            <% @application.score_board.each do |val| %>
+              <li>
+                "<%= val[:name] %>" : <%= val[:val] %> points
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
