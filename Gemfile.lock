@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/robot2000/codebreaker.git
-  revision: 5aaa8edd32c6683515def24a4fc1ed352a637c7b
+  revision: c04d73ee020070151ea268ea6356b242f8d1d7cd
   specs:
-    codebreaker (0.1.7)
+    codebreaker (0.1.8)
 
 GEM
   remote: https://rubygems.org/

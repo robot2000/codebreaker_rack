@@ -26,7 +26,7 @@
 
             <% if @application.game_status == 'play' %>
               <form method="post" action="/check">
-                <input name="suspect" type="text" placeholder="enter code here (1..4)" pattern="[1-6]{4}"/>
+                <input name="suspect" type="text" placeholder="enter code here (1..6)" pattern="[1-6]{4}"/>
                 <input type="submit" value="Check"/>
               </form>
             <% elsif @application.game_status == 'win'%>
