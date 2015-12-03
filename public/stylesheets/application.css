@@ -1,34 +1,49 @@
 body {
-    background-color: #4B7399;
-    font-family: Verdana;
-    font-size: 14px;
+  background-image:url('http://hdwallpapersfit.com/wp-content/uploads/2015/04/dark-background.jpg');
+  font-family: Verdana;
+  font-size: 14px;
 }
 #container {
-    width: 75%;
-    height: 80%;
-    margin: 0 auto;
-    background-color: #FFF;
-    padding: 20px 40px;
-    border: solid 1px black;
-    margin-top: 20px;
+  width: 75%;
+  height: 40%;
+  margin: 0 auto;
+  background-color: #dbd7d2;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 50px;
+}
+h1, h2 {
+  color: #515151;
+  text-align: center;
+}
+h3 {
+  color: #515151;
+}
+#hist {
+  padding-top: 10px;
+  padding-left: 40px;
+}
+#hint {
+  padding-left: 40px;
 }
 #content {
-    float: left;
-    width: 69%;
-    background-color: #FFF;
-    border: solid 1px black;
+  float: left;
+  width: 68%;
+  background-color: #dbd7d2;
+  border: solid 1px black;
 }
 #winners {
   width: 30%;
   float: right;
-  background-color: #FFF;
+  background-color: #dbd7d2;
   border: solid 1px black;
 }
 
 a {
-    color: #0000FF;
+  color: #0000FF;
 }
 
 form {
-    margin: 5px;
+  margin: 10px;
+  padding-left: 20px;
 }

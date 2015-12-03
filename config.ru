@@ -6,7 +6,6 @@ require "./lib/racker"
 
 require File.expand_path("./static_middleware.rb", "middleware")
 require File.expand_path("./session_middleware.rb", "middleware")
-# require File.expand_path("./game.rb", "lib")
 # use Rack::Static, :urls => ["/stylesheets"], :root => "public"
 
 use Static

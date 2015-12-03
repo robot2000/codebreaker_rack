@@ -13,9 +13,6 @@ class App
     data_folder = File.expand_path('../' + DATA_FOLDER, File.dirname(__FILE__));
     @game_file = data_folder + '/' + file_name
     game_init
-    
-    # puts @game.methods # to show all methods
-
 
     @hint_value = @game.hint_value
     @score_board_file = data_folder + '/' + SCOREBOARD_FILE
@@ -50,7 +47,6 @@ class App
 
   def hint
     @hint_value = @game.hint
-    puts @hint_value = @game.hint
     File.open(@game_file, 'w') {|f| f.write(Marshal.dump(@game)) }
   end
 
