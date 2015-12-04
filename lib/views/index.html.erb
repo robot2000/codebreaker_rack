@@ -30,7 +30,7 @@
                 <input type="submit" value="Check"/>
               </form>
             <% elsif @application.game_status == 'win'%>
-              <h1>You WIN</h1>
+              <h1>You WIN !!!</h1>
               <h2>you score: <%= @application.score %> points</h2>
               <form method="post" action="/save">
                 <input name="name" type="text" placeholder="enter your name"/>
@@ -58,7 +58,9 @@
         </div>
         
         <div id="winners">
-          <h2>SCORES TABLE:</h2>
+          <h2>
+            SCORES TABLE:
+          </h2>
           <ul>
             <% @application.score_board.each do |val| %>
               <li>

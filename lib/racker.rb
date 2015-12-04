@@ -8,26 +8,26 @@ class Racker
    
   def initialize(env)
     @request = Rack::Request.new(env)
-    @application = App.new(game_file_name)
+    @application = App.new(game_file)
   end
    
   def response
     case @request.path
     when "/" then
       Rack::Response.new do |response|
-        response.set_cookie("game_file_name", game_file_name)
+        response.set_cookie("game_file", game_file)
         response.write(render("index.html.erb"))
       end
     when "/check" then
       @application.check(@request.params['suspect'])
       Rack::Response.new do |response|
-        response.set_cookie("game_file_name", game_file_name)
+        response.set_cookie("game_file", game_file)
         response.redirect('/')
       end
     when "/save" then
       @application.save(@request.params['name'])
       Rack::Response.new do |response|
-        response.set_cookie("game_file_name", '')
+        response.set_cookie("game_file", '')
         response.redirect('/')
       end
     when "/hint" then
@@ -38,7 +38,7 @@ class Racker
     when "/start_new" then
       @application.hint
       Rack::Response.new do |response|
-        response.set_cookie("game_file_name", '')
+        response.set_cookie("game_file", '')
         response.redirect('/')
       end
     else
@@ -51,11 +51,11 @@ class Racker
     ERB.new(File.read(path)).result(binding)
   end
 
-  def game_file_name
-    if @request.cookies["game_file_name"].to_s.empty?
+  def game_file
+    if @request.cookies["game_file"].to_s.empty?
       SecureRandom.hex
     else
-      @request.cookies["game_file_name"]
+      @request.cookies["game_file"]
     end
   end
 end

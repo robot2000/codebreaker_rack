@@ -8,7 +8,8 @@ require File.expand_path("./static_middleware.rb", "middleware")
 require File.expand_path("./session_middleware.rb", "middleware")
 # use Rack::Static, :urls => ["/stylesheets"], :root => "public"
 
-use Static
+
 use Session
+use Static
 
 run Racker

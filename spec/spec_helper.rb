@@ -1,0 +1,5 @@
+require 'bundler/setup'
+require 'rspec'
+require 'rspec/collection_matchers'
+require 'codebreaker'
+require_relative '../lib/racker'

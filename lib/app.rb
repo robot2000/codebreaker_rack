@@ -7,7 +7,7 @@ class App
   DATA_FOLDER = 'data'
   SCOREBOARD_FILE = 'scoreboard.marsh'
 
-  attr_accessor :hint_value
+   attr_reader :hint_value
 
   def initialize(file_name)
     data_folder = File.expand_path('../' + DATA_FOLDER, File.dirname(__FILE__));
